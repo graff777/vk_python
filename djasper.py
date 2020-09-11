@@ -1,4 +1,5 @@
 import pyowm
+city_friends={'Ваня':'Москва', 'Сергей':'Смоленск', 'Любомир':'Тверь'}
 print('Джаспер: Я вас слушаю')
 query_in=str(input())
 query=query_in.split(', ')
@@ -24,10 +25,12 @@ if query[0]== 'Джаспер':
             print('Джаспер: Скорость ветра ' + str(windSpeed) + ' метра в секунду')
             print('Джаспер: ' + str(status))
         except:
-            print('Джаспер: такого города не существует')         
-            
-            
-          
+            print('Джаспер: такого города не существует') 
+    if query[1]=='в каких городах живут мои друзья?':
+        for city in city_friends.values():
+           print(city, end=', ')
+        print()
 
 
+        
 
