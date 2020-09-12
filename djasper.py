@@ -1,4 +1,6 @@
 import pyowm
+import datetime
+from pycbrf.toolbox import ExchangeRates
 city_friends={'Ваня':'Москва', 'Сергей':'Смоленск', 'Любомир':'Тверь'}
 print('Джаспер: Я вас слушаю')
 query_in=str(input())
@@ -30,7 +32,26 @@ if query[0]== 'Джаспер':
         for city in city_friends.values():
            print(city, end=', ')
         print()
+    if query[1]=='курс доллара':
+        now = datetime.datetime.now()
+        rates = ExchangeRates(str(now.strftime("%Y-%m-%d")), locale_en=True)
+        kurs=int(rates['USD'].rate)
+        if kurs%10==1:
+            rubl='рубль'
+        elif kurs%10==2 or kurs%10==3 or kurs%10==4:
+            rubl='рубля'
+        else:
+            rubl='рублей'
+        print(f'курс доллара на {now.strftime("%d-%m-%Y")} равен {kurs} {rubl}' )
+
 
 
         
+
+
+
+
+
+
+
 
