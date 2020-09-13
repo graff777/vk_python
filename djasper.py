@@ -2,6 +2,9 @@ import pyowm
 import datetime
 from pycbrf.toolbox import ExchangeRates
 city_friends={'Ваня':'Москва', 'Сергей':'Смоленск', 'Любомир':'Тверь'}
+print('Джаспер: как вас зовут?')
+user=str(input())
+print(f'Джаспер: очень приятно познакомиться, {user}')
 print('Джаспер: Я вас слушаю')
 query_in=str(input())
 query=query_in.split(', ')
@@ -43,6 +46,8 @@ if query[0]== 'Джаспер':
         else:
             rubl='рублей'
         print(f'курс доллара на {now.strftime("%d-%m-%Y")} равен {kurs} {rubl}' )
+    if query[1]=='кто я?':
+        print(f'Джаспер: {user}')
 
 
 
